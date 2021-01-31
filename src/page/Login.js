@@ -12,6 +12,7 @@ function Login() {
   const userLogin = (e) => {
     e.preventDefault();
     dispatch(setUser(userName));
+    localStorage.setItem('userlearning', userName);
     history.push('/');
   }
 

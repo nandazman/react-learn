@@ -11,9 +11,13 @@ function Main() {
   const user = useSelector(getUser);
   const history = useHistory();
   const dispatch = useDispatch();
-  console.log({dispatch, setUser})
+
   if (!user.login) {
-    history.push('/login');
+    const userStorage = localStorage.getItem('userlearning');
+    if (!userStorage) {
+      history.push('/login');
+    }
+    dispatch(setUser(userStorage));
   }
   return (
     <>
