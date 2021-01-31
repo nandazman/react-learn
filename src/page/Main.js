@@ -11,6 +11,12 @@ function Main() {
   const user = useSelector(getUser);
   const history = useHistory();
   const dispatch = useDispatch();
+  const path = localStorage.getItem('path');
+
+  if (path) {
+    localStorage.removeItem('path');
+    history.push(`/${path}`);
+  }
 
   if (!user.login) {
     const userStorage = localStorage.getItem('userlearning');
